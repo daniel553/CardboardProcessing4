@@ -90,7 +90,7 @@ public class PVR extends GvrActivity implements AppComponent {
     if (sketch != null) {
       sketch.initSurface(PVR.this, null);
       // Required to read the paired viewer's distortion parameters.
-      sketch.requestPermission("android.permission.READ_EXTERNAL_STORAGE");
+      //sketch.requestPermission("android.permission.READ_EXTERNAL_STORAGE");
     }
   }
 

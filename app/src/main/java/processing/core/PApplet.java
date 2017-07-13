@@ -485,7 +485,7 @@ public class PApplet extends Object implements PConstants {
     looping = true;
     redraw = true;  // draw this guy once
 
-    sketchPath = surface.getFilesDir().getAbsolutePath();
+    //sketchPath = surface.getFilesDir().getAbsolutePath();
 
     surface.startThread();
 

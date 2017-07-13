@@ -176,33 +176,20 @@ public class PGraphicsOpenGL extends PGraphics {
 
   // Shaders
 
-  static protected URL defColorShaderVertURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/ColorVert.glsl");
-  static protected URL defTextureShaderVertURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/TexVert.glsl");
-  static protected URL defLightShaderVertURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/LightVert.glsl");
-  static protected URL defTexlightShaderVertURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/TexLightVert.glsl");
-  static protected URL defColorShaderFragURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/ColorFrag.glsl");
-  static protected URL defTextureShaderFragURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/TexFrag.glsl");
-  static protected URL defLightShaderFragURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/LightFrag.glsl");
-  static protected URL defTexlightShaderFragURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/TexLightFrag.glsl");
+  static protected String defColorShaderVertURL ="colorvert";
+  static protected String defTextureShaderVertURL = "texvert";
+  static protected String defLightShaderVertURL ="lightvert";
+  static protected String defTexlightShaderVertURL ="texlightvert";
+  static protected String defColorShaderFragURL ="colorfrag";
+  static protected String defTextureShaderFragURL ="texfrag";
+  static protected String defLightShaderFragURL ="lightfrag";
+  static protected String defTexlightShaderFragURL ="texlightfrag";
 
-  static protected URL defLineShaderVertURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/LineVert.glsl");
-  static protected URL defLineShaderFragURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/LineFrag.glsl");
-  static protected URL defPointShaderVertURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/PointVert.glsl");
-  static protected URL defPointShaderFragURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/PointFrag.glsl");
-  static protected URL maskShaderFragURL =
-    PGraphicsOpenGL.class.getResource("/assets/shaders/MaskFrag.glsl");
+  static protected String defLineShaderVertURL ="linevert";
+  static protected String defLineShaderFragURL ="linefrag";
+  static protected String defPointShaderVertURL ="pointvert";
+  static protected String defPointShaderFragURL ="pointfrag";
+  static protected String maskShaderFragURL ="maskfrag";
 
   protected PShader defColorShader;
   protected PShader defTextureShader;
@@ -243,9 +230,9 @@ public class PGraphicsOpenGL extends PGraphics {
   // Set is copied to the List when we need to iterate it
   // so that readers can remove themselves from the Set during
   // iteration if they don't have any ongoing transfers.
-  protected static final Set<AsyncPixelReader>
+  protected static final Set<PGraphicsOpenGL.AsyncPixelReader>
       ongoingPixelTransfers = new HashSet<>();
-  protected static final List<AsyncPixelReader>
+  protected static final List<PGraphicsOpenGL.AsyncPixelReader>
       ongoingPixelTransfersIterable = new ArrayList<>();
 
   // ........................................................
@@ -5766,7 +5753,7 @@ public class PGraphicsOpenGL extends PGraphics {
 
   protected static void completeFinishedPixelTransfers() {
     ongoingPixelTransfersIterable.addAll(ongoingPixelTransfers);
-    for (AsyncPixelReader pixelReader :
+    for (PGraphicsOpenGL.AsyncPixelReader pixelReader :
         ongoingPixelTransfersIterable) {
       // if the getter was not called this frame,
       // tell it to check for completed transfers now
@@ -5780,7 +5767,7 @@ public class PGraphicsOpenGL extends PGraphics {
 
   protected static void completeAllPixelTransfers() {
     ongoingPixelTransfersIterable.addAll(ongoingPixelTransfers);
-    for (AsyncPixelReader pixelReader :
+    for (PGraphicsOpenGL.AsyncPixelReader pixelReader :
         ongoingPixelTransfersIterable) {
       pixelReader.completeAllTransfers();
     }
@@ -7048,10 +7035,10 @@ public class PGraphicsOpenGL extends PGraphics {
     // if needed
     if (OPENGL_RENDERER.equals("VideoCore IV HW") ||    // Broadcom's binary driver for Raspberry Pi
       OPENGL_RENDERER.equals("Gallium 0.4 on VC4")) {   // Mesa driver for same hardware
-        defLightShaderVertURL =
-          PGraphicsOpenGL.class.getResource("/assets/shaders/LightVert-vc4.glsl");
-        defTexlightShaderVertURL =
-          PGraphicsOpenGL.class.getResource("/assets/shaders/TexLightVert-vc4.glsl");
+//        defLightShaderVertURL =
+//          PGraphicsOpenGL.class.getResource("/assets/shaders/LightVert-vc4.glsl");
+//        defTexlightShaderVertURL =
+//          PGraphicsOpenGL.class.getResource("/assets/shaders/TexLightVert-vc4.glsl");
     }
 
     glParamsRead = true;
@@ -7536,7 +7523,7 @@ public class PGraphicsOpenGL extends PGraphics {
     }
 
     void clear() {
-      Arrays.fill(textures, 0, size, null);
+      java.util.Arrays.fill(textures, 0, size, null);
       size = 0;
       hasTextures = false;
     }
