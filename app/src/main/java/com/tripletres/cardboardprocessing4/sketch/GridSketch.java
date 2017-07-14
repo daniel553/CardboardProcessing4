@@ -4,6 +4,8 @@ import processing.core.PApplet;
 import processing.core.PShape;
 
 /**
+ * Simple grid example
+ *
  * Created by Daniel on 13/07/2017.
  */
 
