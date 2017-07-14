@@ -3,6 +3,7 @@ package com.tripletres.cardboardprocessing4;
 import android.os.Bundle;
 
 import com.tripletres.cardboardprocessing4.sketch.CubeSketch;
+import com.tripletres.cardboardprocessing4.sketch.TwoSidesSketch;
 
 import processing.core.PApplet;
 import processing.vr.PVR;
@@ -10,6 +11,7 @@ import processing.vr.PVR;
 public class PVRHolderActivity extends PVR {
 
     public static final String ARGS_CUBE = "ARGS_CUBE";
+    public static final String ARGS_TWO_SIDES = "ARGS_TWO_SIDES";
 
     private PApplet sketch = null;
 
@@ -23,6 +25,8 @@ public class PVRHolderActivity extends PVR {
     private void setArgsSketch(final Bundle b) {
         if (b.containsKey(ARGS_CUBE))
             sketch = new CubeSketch();
+        if (b.containsKey(ARGS_TWO_SIDES))
+            sketch = new TwoSidesSketch();
 
         if (sketch != null)
             setSketch(sketch);

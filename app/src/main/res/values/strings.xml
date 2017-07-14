@@ -2,4 +2,5 @@
     <string name="app_name">CardboardProcessing4</string>
     <string name="select_option">Select an option above</string>
     <string name="cube">Cube</string>
+    <string name="two_sides">Two Sides</string>
 </resources>

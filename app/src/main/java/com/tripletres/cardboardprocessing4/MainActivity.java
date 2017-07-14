@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.activity_main_cube).setOnClickListener(this);
+        findViewById(R.id.activity_main_two_sides).setOnClickListener(this);
     }
 
     @Override
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.activity_main_cube:
                 openPVRHolder(PVRHolderActivity.ARGS_CUBE);
                 break;
+            case R.id.activity_main_two_sides:
+                openPVRHolder(PVRHolderActivity.ARGS_TWO_SIDES);
             default:
                 break;
         }
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void openPVRHolder(String argsSketch) {
         Intent intent = new Intent(this, PVRHolderActivity.class);
-        intent.putExtra(PVRHolderActivity.ARGS_CUBE, argsSketch);
+        intent.putExtra(argsSketch, true);
         startActivity(intent);
     }
 }
