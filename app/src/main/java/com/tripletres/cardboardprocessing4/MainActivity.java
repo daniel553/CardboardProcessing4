@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         findViewById(R.id.activity_main_cube).setOnClickListener(this);
         findViewById(R.id.activity_main_two_sides).setOnClickListener(this);
+        findViewById(R.id.activity_main_grid).setOnClickListener(this);
     }
 
     @Override
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.activity_main_two_sides:
                 openPVRHolder(PVRHolderActivity.ARGS_TWO_SIDES);
+            case R.id.activity_main_grid:
+                openPVRHolder(PVRHolderActivity.ARGS_GRID);
             default:
                 break;
         }
