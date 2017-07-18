@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.tripletres.cardboardprocessing4.sketch.CubeSketch;
 import com.tripletres.cardboardprocessing4.sketch.GridSketch;
+import com.tripletres.cardboardprocessing4.sketch.ShapeGroupsSketch;
 import com.tripletres.cardboardprocessing4.sketch.SphereSketch;
 import com.tripletres.cardboardprocessing4.sketch.TwoSidesSketch;
 
@@ -16,6 +17,7 @@ public class PVRHolderActivity extends PVR {
     public static final String ARGS_TWO_SIDES = "ARGS_TWO_SIDES";
     public static final String ARGS_GRID = "ARGS_GRID";
     public static final String ARGS_SPHERE = "ARGS_SPHERE";
+    public static final String ARGS_SHAPE_GROUP = "ARGS_SHAPE_GROUP";
 
     private PApplet sketch = null;
 
@@ -35,6 +37,8 @@ public class PVRHolderActivity extends PVR {
             sketch = new GridSketch();
         if (b.containsKey(ARGS_SPHERE))
             sketch = new SphereSketch();
+        if (b.containsKey(ARGS_SHAPE_GROUP))
+            sketch = new ShapeGroupsSketch();
 
         if (sketch != null)
             setSketch(sketch);

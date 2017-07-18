@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.activity_main_two_sides).setOnClickListener(this);
         findViewById(R.id.activity_main_grid).setOnClickListener(this);
         findViewById(R.id.activity_main_sphere).setOnClickListener(this);
+        findViewById(R.id.activity_main_shape_group).setOnClickListener(this);
     }
 
     @Override
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.activity_main_sphere:
                 openPVRHolder(PVRHolderActivity.ARGS_SPHERE);
+                break;
+            case R.id.activity_main_shape_group:
+                openPVRHolder(PVRHolderActivity.ARGS_SHAPE_GROUP);
                 break;
             default:
                 break;
