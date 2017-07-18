@@ -4,4 +4,5 @@
     <string name="cube">Cube</string>
     <string name="two_sides">Two Sides</string>
     <string name="grid">Grid</string>
+    <string name="sphere">Sphere</string>
 </resources>
